@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="application-container col-lg-10 mx-auto">
+            <!-- Form Header -->
+            <div class="form-header">
+                <h2><i class="bi bi-person-badge me-2"></i>Join Our Team</h2>
+                <p class="mb-0">Complete your application in just a few steps</p>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="formProgress"></div>
+            </div>
+            
+            <div class="p-4 p-md-5">
+                <!-- Bootstrap Tabs -->
+                <ul class="nav nav-tabs mb-4" id="applicationTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal" type="button" role="tab">
+                            <i class="bi bi-person-fill me-2"></i>Personal
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab">
+                            <i class="bi bi-mortarboard-fill me-2"></i>Education
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="experience-tab" data-bs-toggle="tab" data-bs-target="#experience" type="button" role="tab">
+                            <i class="bi bi-briefcase-fill me-2"></i>Experience
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="applicationTabsContent">
+                    <!-- Personal Info Tab -->
+                    <div class="tab-pane fade show active" id="personal" role="tabpanel">
+                        <form>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="floating-label">
+                                        <input type="text" class="form-control" id="firstName" placeholder=" ">
+                                        <label for="firstName">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="floating-label">
+                                        <input type="text" class="form-control" id="lastName" placeholder=" ">
+                                        <label for="lastName">Last Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="floating-label">
+                                    <input type="email" class="form-control" id="email" placeholder=" ">
+                                    <label for="email">Email Address</label>
+                                </div>
+                                <small class="text-muted">
+                                    <i class="bi bi-info-circle tooltip-icon" 
+                                       data-bs-toggle="tooltip" 
+                                       data-bs-placement="right" 
+                                       title="We'll use this to contact you about your application"></i>
+                                    We'll never share your email
+                                </small>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="floating-label">
+                                    <input type="tel" class="form-control" id="phone" placeholder=" ">
+                                    <label for="phone">Phone Number</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Salary Expectations</label>
+                                <div class="slider-container">
+                                    <input type="range" class="form-range" min="30000" max="150000" step="1000" id="salarySlider" value="75000">
+                                    <div class="d-flex justify-content-between mt-2">
+                                        <span>$30K</span>
+                                        <span class="fw-bold text-primary">$<span id="salaryValue">75</span>K</span>
+                                        <span>$150K</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="termsCheck">
+                                <label class="form-check-label" for="termsCheck">
+                                    I agree to the <span class="terms-link" data-bs-toggle="modal" data-bs-target="#termsModal">Terms & Conditions</span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Education Tab -->
+                    <div class="tab-pane fade" id="education" role="tabpanel">
+                        <!-- Bootstrap Accordion -->
+                        <div class="accordion" id="educationAccordion">
+                            <div class="accordion-item border-0 mb-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        <i class="bi bi-building me-2"></i> High School Education
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#educationAccordion">
+                                    <div class="accordion-body pt-0">
+                                        <div class="mb-3">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control" id="highSchool" placeholder=" ">
+                                                <label for="highSchool">School Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control" id="highSchoolYear" placeholder=" ">
+                                                <label for="highSchoolYear">Graduation Year</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                        <i class="bi bi-mortarboard me-2"></i> Higher Education
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#educationAccordion">
+                                    <div class="accordion-body pt-0">
+                                        <div class="mb-3">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control" id="college" placeholder=" ">
+                                                <label for="college">Institution Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control" id="degree" placeholder=" ">
+                                                <label for="degree">Degree/Certificate</label>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="floating-label">
+                                                <input type="text" class="form-control" id="collegeYear" placeholder=" ">
+                                                <label for="collegeYear">Graduation Year</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Tab -->
+                    <div class="tab-pane fade" id="experience" role="tabpanel">
+                        <div class="mb-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control" id="currentJob" placeholder=" ">
+                                <label for="currentJob">Current Position</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="floating-label">
+                                <input type="text" class="form-control" id="company" placeholder=" ">
+                                <label for="company">Company Name</label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Years of Experience</label>
+                            <select class="form-select" id="yearsExperience">
+                                <option selected disabled>Select your experience level</option>
+                                <option value="0-1">Entry Level (0-2 years)</option>
+                                <option value="2-5">Mid Level (2-5 years)</option>
+                                <option value="5-10">Senior Level (5-10 years)</option>
+                                <option value="10+">Executive (10+ years)</option>
+                            </select>
+                            <small class="text-muted">
+                                <i class="bi bi-info-circle tooltip-icon" 
+                                   data-bs-toggle="tooltip" 
+                                   data-bs-placement="right" 
+                                   title="Include all relevant experience in this field"></i>
+                                Be honest about your experience level
+                            </small>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Skills & Expertise</label>
+                            <!-- Bootstrap List Group as Checkboxes -->
+                            <div class="list-group">
+                                <label class="list-group-item d-flex align-items-center">
+                                    <input class="form-check-input flex-shrink-0 me-3" type="checkbox" value="">
+                                    <span>
+                                        <i class="bi bi-code-slash me-2"></i> Web Development
+                                        <small class="d-block text-muted">HTML, CSS, JavaScript</small>
+                                    </span>
+                                </label>
+                                <label class="list-group-item d-flex align-items-center">
+                                    <input class="form-check-input flex-shrink-0 me-3" type="checkbox" value="">
+                                    <span>
+                                        <i class="bi bi-database me-2"></i> Database Management
+                                        <small class="d-block text-muted">SQL, MongoDB, etc.</small>
+                                    </span>
+                                </label>
+                                <label class="list-group-item d-flex align-items-center">
+                                    <input class="form-check-input flex-shrink-0 me-3" type="checkbox" value="">
+                                    <span>
+                                        <i class="bi bi-phone me-2"></i> Mobile Development
+                                        <small class="d-block text-muted">iOS, Android, React Native</small>
+                                    </span>
+                                </label>
+                                <label class="list-group-item d-flex align-items-center">
+                                    <input class="form-check-input flex-shrink-0 me-3" type="checkbox" value="">
+                                    <span>
+                                        <i class="bi bi-diagram-3 me-2"></i> Project Management
+                                        <small class="d-block text-muted">Agile, Scrum, Waterfall</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Upload Your Resume/CV</label>
+                            <div class="file-upload">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <h5>Drag & drop files here</h5>
+                                <p class="text-muted">or click to browse (PDF, DOCX, max 5MB)</p>
+                                <input type="file" class="d-none" id="resumeUpload">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+                    <button class="btn btn-outline-primary" id="prevTab" disabled>
+                        <i class="bi bi-arrow-left me-2"></i>Previous
+                    </button>
+                    <button class="btn btn-primary" id="nextTab">
+                        Next<i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+                    <button class="btn btn-success" id="submitBtn" style="display: none;">
+                        <i class="bi bi-send-check me-2"></i>Submit Application
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">
+                        <i class="bi bi-file-earmark-text me-2"></i>Terms & Conditions
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <i class="bi bi-exclamation-circle-fill me-2"></i> Please review these terms carefully before submitting your application.
+                    </div>
+                    
+                    <h6>Application Process</h6>
+                    <p>By submitting this application, you acknowledge that:</p>
+                    <ul class="mb-4">
+                        <li>All information provided is accurate and complete to the best of your knowledge</li>
+                        <li>We may contact the references you provide during the evaluation process</li>
+                        <li>Background checks may be required for certain positions</li>
+                        <li>Incomplete applications may not be considered</li>
+                    </ul>
+                    
+                    <h6>Data Privacy</h6>
+                    <p>Your personal data will be processed according to our Privacy Policy:</p>
+                    <ul class="mb-4">
+                        <li>We collect only the data necessary for the application process</li>
+                        <li>Your information will be stored securely and accessed only by authorized personnel</li>
+                        <li>You may request deletion of your data at any time if you're not hired</li>
+                    </ul>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="modalTermsCheck">
+                        <label class="form-check-label" for="modalTermsCheck">
+                            I have read and agree to these terms and conditions
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="acceptTerms">
+                        Accept & Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        
+        // Slider value display
+        const salarySlider = document.getElementById('salarySlider');
+        const salaryValue = document.getElementById('salaryValue');
+        
+        salarySlider.addEventListener('input', function() {
+            salaryValue.textContent = Math.round(this.value / 1000);
+        });
+        
+        // Tab navigation
+        const tabs = document.querySelectorAll('.nav-tabs .nav-link');
+        const prevBtn = document.getElementById('prevTab');
+        const nextBtn = document.getElementById('nextTab');
+        const submitBtn = document.getElementById('submitBtn');
+        const formProgress = document.getElementById('formProgress');
+        
+        let currentTab = 0;
+        
+        function showTab(index) {
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.add('active');
+                    document.querySelector(tab.getAttribute('data-bs-target')).classList.add('show', 'active');
+                } else {
+                    tab.classList.remove('active');
+                    document.querySelector(tab.getAttribute('data-bs-target')).classList.remove('show', 'active');
+                }
+            });
+            
+            // Update progress bar
+            formProgress.style.width = `${(index + 1) * 33.33}%`;
+            
+            // Update button states
+            prevBtn.disabled = index === 0;
+            nextBtn.style.display = index === tabs.length - 1 ? 'none' : 'block';
+            submitBtn.style.display = index === tabs.length - 1 ? 'block' : 'none';
+        }
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentTab < tabs.length - 1) {
+                currentTab++;
+                showTab(currentTab);
+            }
+        });
+        
+        prevBtn.addEventListener('click', function() {
+            if (currentTab > 0) {
+                currentTab--;
+                showTab(currentTab);
+            }
+        });
+        
+        // File upload interaction
+        const fileUpload = document.querySelector('.file-upload');
+        const fileInput = document.getElementById('resumeUpload');
+        
+        fileUpload.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                fileUpload.innerHTML = `
+                    <i class="bi bi-file-earmark-check text-success"></i>
+                    <h5>${this.files[0].name}</h5>
+                    <p class="text-success">Ready to upload</p>
+                `;
+            }
+        });
+        
+        // Terms modal checkbox sync
+        const termsCheck = document.getElementById('termsCheck');
+        const modalTermsCheck = document.getElementById('modalTermsCheck');
+        const acceptTermsBtn = document.getElementById('acceptTerms');
+        
+        acceptTermsBtn.addEventListener('click', function() {
+            termsCheck.checked = modalTermsCheck.checked;
+        });
+        
+        // Initialize
+        showTab(0);
+    </script>
+</body>
+</html>
